@@ -10,11 +10,7 @@ resource "aws_s3_bucket" "test" {
 module "antivirus" {
   source = "../../"
 
-  buckets-to-scan = [
-    aws_s3_bucket.test.bucket
-  ]
-
-  scanner-environment-variables = {
-    AV_DELETE_INFECTED_FILES = "True"
-  }
+  antivirus_lambda_code = "/Users/radim/Work/bucket-antivirus-function/build/lambda.zip"
+  buckets_to_scan       = [aws_s3_bucket.test.bucket]
+  # scanner_environment_variables = { AV_DELETE_INFECTED_FILES = "True" }
 }

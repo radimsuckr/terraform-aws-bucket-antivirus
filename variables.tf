@@ -1,33 +1,33 @@
-variable "buckets-to-scan" {
+variable "buckets_to_scan" {
   description = "List of bucket names to be scanned by the antivirus"
   type        = list(string)
 }
 
-variable "scanner-environment-variables" {
+variable "scanner_environment_variables" {
   description = "Custom environment variables for the scanner function"
   type        = map(string)
   default     = {}
 }
 
-variable "updater-environment-variables" {
+variable "updater_environment_variables" {
   description = "Custom environment variables for the definitions update function"
   type        = map(string)
   default     = {}
 }
 
-variable "antivirus-lambda-code" {
+variable "antivirus_lambda_code" {
   description = "Optional argument to provide precompiled zip file containing the lambda code, skipping the built in compilation process"
   type        = string
   default     = null
 }
 
-variable "allow-public-access" {
+variable "allow_public_access" {
   description = "If true, contents of the bucket in which the antivirus definitions are saved will be public. Good for sharing the same definitions across multiple accounts."
   type        = bool
   default     = false
 }
 
-variable "antivirus-update-rate" {
+variable "antivirus_update_rate" {
   description = "Configures the antivirus update rate. Syntax is the same of cloudwatch rate schedule expression for rules"
   type        = string
   default     = "3 hours"
