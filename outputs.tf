@@ -32,3 +32,38 @@ output "update_function_policy" {
   description = "The policy attached to the definitions update function role"
   value       = aws_iam_policy.antivirus_update_policy
 }
+
+output "sns_scanner_destination_topic" {
+  description = "ARN of the SNS topic for results of scanned objects"
+  value       = var.create_sns_scanner_destination_topic ? aws_sns_topic.scanner_destination[0].arn : null
+}
+
+output "av_signature_field_name" {
+  description = "Name of the field containing antivirus signature"
+  value       = var.av_signature_field_name
+}
+
+output "av_status_field_name" {
+  description = "Name of the field containing antivirus result"
+  value       = var.av_status_field_name
+}
+
+output "av_timestamp_field_name" {
+  description = "Name of the field containing antivirus timestamp"
+  value       = var.av_timestamp_field_name
+}
+
+output "av_scan_start_field_name" {
+  description = "Name of the field containing antivirus scan start timestamp"
+  value       = var.av_scan_start_field_name
+}
+
+output "name_prefix" {
+  description = "Prefix for all resource names"
+  value       = var.name_prefix
+}
+
+output "name_suffix" {
+  description = "Suffix for all resource names"
+  value       = var.name_suffix
+}
