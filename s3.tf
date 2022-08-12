@@ -3,31 +3,9 @@ resource "aws_s3_bucket" "antivirus_definitions" {
   force_destroy = true
 }
 
-resource "aws_s3_bucket_server_side_encryption_configuration" "antivirus_definitions" {
-  bucket = aws_s3_bucket.antivirus_definitions.bucket
-
-  rule {
-    apply_server_side_encryption_by_default {
-      kms_master_key_id = var.s3_antivirus_definitions_kms_key
-      sse_algorithm     = "aws:kms"
-    }
-  }
-}
-
 resource "aws_s3_bucket" "antivirus_code" {
   bucket        = local.names["s3_antivirus_code_bucket"]
   force_destroy = true
-}
-
-resource "aws_s3_bucket_server_side_encryption_configuration" "antivirus_code" {
-  bucket = aws_s3_bucket.antivirus_code.bucket
-
-  rule {
-    apply_server_side_encryption_by_default {
-      kms_master_key_id = var.s3_antivirus_code_kms_key
-      sse_algorithm     = "aws:kms"
-    }
-  }
 }
 
 resource "aws_s3_bucket_policy" "public_antivirus_definitions" {

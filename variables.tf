@@ -42,18 +42,6 @@ variable "sns_scanner_destination_topic_kms_key" {
   type        = string
 }
 
-variable "s3_antivirus_definitions_kms_key" {
-  default     = "alias/aws/s3"
-  description = "KMS key id to use for S3 antivirus definitions bucket encryption"
-  type        = string
-}
-
-variable "s3_antivirus_code_kms_key" {
-  default     = "alias/aws/s3"
-  description = "KMS key id to use for S3 antivirus code bucket encryption"
-  type        = string
-}
-
 variable "update_antivirus_definitions_on_deploy" {
   default     = true
   description = "Toggle to update antivirus definitions on deploy"
